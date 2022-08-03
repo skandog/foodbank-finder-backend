@@ -13,7 +13,6 @@ router.get("/", async function (req, res, next) {
     res.json(results);
   });
 
-  console.log("resultsData :>> ", resultData);
   // let result = await resultData;
   // // res.json({ message: "I wish we had some information to give you ☹️" });
   // console.log("result (route):>> ", result);
