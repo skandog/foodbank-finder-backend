@@ -44,3 +44,13 @@ export const getDataApi = async (url) => {
 
   return data;
 };
+
+export async function insertInto(collection, foodbank) {
+  client.connect(async (err, db) => {
+    if (err) throw err;
+    const collection = client.db("yourLocalFoodBank").collection(collection);
+
+    collection.insertOne(foodbank);
+    
+  })
+  }
