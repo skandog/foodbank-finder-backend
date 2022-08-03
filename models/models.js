@@ -45,12 +45,19 @@ export const getDataApi = async (url) => {
   return data;
 };
 
-export async function insertInto(collection, foodbank) {
-  client.connect(async (err, db) => {
+export async function insertInto(foodbank) {
+  client.connect(async (err) => {
     if (err) throw err;
-    const collection = client.db("yourLocalFoodBank").collection(collection);
+    const collection = client.db("yourLocalFoodBank").collection("FoodBanks");
 
     collection.insertOne(foodbank);
+
+    console.log(`inserted into the collection foodbank`)
+
     
   })
-  }
+}
+
+
+
+client.close()
