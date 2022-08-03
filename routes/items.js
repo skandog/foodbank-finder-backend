@@ -10,7 +10,7 @@ router.get("/", async function (req, res, next) {
 
   let resultData = await getData(function (results) {
     console.log("results (moved) :>> ", results);
-    return results;
+    res.json(results);
   });
 
   console.log("resultsData :>> ", resultData);
