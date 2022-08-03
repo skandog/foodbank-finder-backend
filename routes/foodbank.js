@@ -1,6 +1,6 @@
 import express from "express";
 const router = express.Router();
-import { getData, getDataApi } from "../models/models.js";
+import { getData, getDataApi, insertInto } from "../models/models.js";
 
 
 router.get("/:foodbank", async (req, res) => {
@@ -12,5 +12,9 @@ router.get("/:foodbank", async (req, res) => {
     res.json(result);
 });
 
+router.post("/", async (req, res)=>{
+    let body = req.params.body;
+    insertInto({body})
+})
 
 export default router;

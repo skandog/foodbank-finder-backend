@@ -54,10 +54,7 @@ export async function insertInto(foodbank) {
 
     console.log(`inserted into the collection foodbank`)
 
-    
   })
 }
 
 
-
-client.close()
