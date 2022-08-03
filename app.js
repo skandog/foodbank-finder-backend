@@ -8,6 +8,7 @@ import logger from "morgan";
 
 import itemsRouter from "./routes/items.js";
 import foodbanksRouter from "./routes/foodbanks.js";
+import foodbankRouter from './routes/foodbank.js';
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/items", itemsRouter);
 app.use("/foodbanks", foodbanksRouter);
+app.use("/foodbank", foodbankRouter);
 
 app.use(function (req, res, next) {
   res

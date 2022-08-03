@@ -41,7 +41,6 @@ export const getDataApi = async (url) => {
   const data = await response.json();
 
   //dev feedback only remove
-  console.log(`data in func >>>`, data);
 
   return data;
 };
