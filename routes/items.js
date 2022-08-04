@@ -1,6 +1,6 @@
 import express from "express";
 const router = express.Router();
-import { getData, getDataApi } from "../models/models.js";
+import { getDataApi } from "../models/models.js";
 
 /* GET users listing. */
 router.get("/", async function (req, res, next) {

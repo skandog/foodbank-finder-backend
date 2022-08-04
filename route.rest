@@ -1,0 +1,11 @@
+GET http://localhost:5000/foodbank
+
+###
+
+POST http://localhost:5000/foodbank
+Content-Type: application/json
+
+{
+"name": "tableville",
+"address": "1 something road"
+}

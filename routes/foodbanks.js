@@ -1,6 +1,6 @@
 import express from "express";
 const router = express.Router();
-import { getData, getDataApi } from "../models/models.js";
+import { getDataApi } from "../models/models.js";
 
 router.get("/", async (req, res) => {
   let url = "https://www.givefood.org.uk/api/2/foodbanks";

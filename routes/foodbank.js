@@ -1,7 +1,7 @@
 import express from "express";
 const router = express.Router();
-import { getData, getDataApi, insertInto } from "../models/models.js";
-import dbo from "../db/conn.js";
+import { getDataApi } from "../models/models.js";
+import FoodBank from "../models/foodbank.js";
 
 router.get("/:foodbank", async (req, res) => {
   let foodbank = req.params.foodbank;
@@ -10,11 +10,46 @@ router.get("/:foodbank", async (req, res) => {
   res.json(result);
 });
 
+// Getting all
+
+router.get("/", async (req, res) => {
+  try {
+    const foodbanksData = await FoodBank.find();
+    res.json(foodbanksData);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+// Creating One
+
+router.post("/", async (req, res) => {
+  const foodbank = new FoodBank({
+    name: req.body.name,
+    address: req.body.address,
+    needs: req.body.needs,
+  });
+  try {
+    const newFoodBank = await foodbank.save();
+    res.status(201).json(newFoodBank);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
+// Updating one
+
+router.patch("/:id", (req, res) => {});
+
+// Deleting one
+
+router.delete("/:id", (req, res) => {});
+
 // router.post("/", async (req, res)=>{
 //     let body = req.params.body;
 //     insertInto({body})
 // })
-
+/*
 router.post("/", (req, res) => {
   const dbConnect = dbo.getDb();
   const matchDocument = req.body;
@@ -29,7 +64,6 @@ router.post("/", (req, res) => {
       }
     });
 });
-
-
+*/
 
 export default router;

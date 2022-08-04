@@ -4,12 +4,12 @@ import fetch from "node-fetch";
 
 const uri = process.env.uri;
 
-const client = new MongoClient(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  serverApi: ServerApiVersion.v1,
-});
-
+// const client = new MongoClient(uri, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   serverApi: ServerApiVersion.v1,
+// });
+/*
 export async function getData(callback) {
   client.connect(async (err, db) => {
     if (err) throw err;
@@ -34,7 +34,7 @@ export let resultData = getData(function (results) {
 });
 
 // console.log(resultData)
-
+*/
 export const getDataApi = async (url) => {
   const response = await fetch(url);
 
@@ -45,13 +45,13 @@ export const getDataApi = async (url) => {
   return data;
 };
 
-export async function insertInto(foodbank) {
-  client.connect(async (err) => {
-    if (err) throw err;
-    const collection = client.db("yourLocalFoodBank").collection("FoodBanks");
+// export async function insertInto(foodbank) {
+//   client.connect(async (err) => {
+//     if (err) throw err;
+//     const collection = client.db("yourLocalFoodBank").collection("FoodBanks");
 
-    collection.insertOne(foodbank);
+//     collection.insertOne(foodbank);
 
-    console.log(`inserted into the collection foodbank`);
-  });
-}
+//     console.log(`inserted into the collection foodbank`);
+//   });
+// }

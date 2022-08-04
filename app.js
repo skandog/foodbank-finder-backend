@@ -1,5 +1,7 @@
 import express from "express";
 import path from "path";
+import mongoose from "mongoose";
+import "dotenv/config";
 
 import __dirname from "./dirname.js";
 import cookieParser from "cookie-parser";
@@ -20,6 +22,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+mongoose.connect(process.env.uri, { useNewUrlParser: true });
+
+const db = mongoose.connection;
+db.on("error", (error) => console.error(error));
+db.once("open", () => console.log("connected to database"));
+
 app.use("/items", itemsRouter);
 app.use("/foodbanks", foodbanksRouter);
 app.use("/foodbank", foodbankRouter);
@@ -36,11 +44,11 @@ app.use(function (err, req, res, next) {
 });
 
 // perform a database connection when the server starts
-dbo.connectToServer(function (err) {
-  if (err) {
-    console.error(err);
-    process.exit();
-  }
-});
+// dbo.connectToServer(function (err) {
+//   if (err) {
+//     console.error(err);
+//     process.exit();
+//   }
+// });
 
 export default app;
