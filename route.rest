@@ -1,4 +1,4 @@
-GET http://localhost:5000/foodbank
+GET http://localhost:5000/foodbank/62ebe2f3298d9fe5b89abbdf
 
 ###
 
@@ -6,6 +6,23 @@ POST http://localhost:5000/foodbank
 Content-Type: application/json
 
 {
-"name": "tableville",
-"address": "1 something road"
+"name": "housevill",
+"address": "2 something road"
+}
+
+
+###
+
+DELETE http://localhost:5000/foodbank/62ebde50f73272e5cb36efdc
+
+
+
+###
+
+PATCH http://localhost:5000/foodbank/62ebe2f3298d9fe5b89abbdf
+Content-Type: application/json
+
+{
+"name": "Mousevill",
+"address": "3 something road"
 }
