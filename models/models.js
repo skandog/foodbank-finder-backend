@@ -21,7 +21,7 @@ export async function getData(callback) {
     //   db.close();
     // });
 
-    const results = await collection.find({ name: "camilla" }).toArray();
+    const results = await collection.find().toArray();
 
     // console.log("results (model) :>> ", results); // perform actions on the collection object
     // client.close();
@@ -30,7 +30,7 @@ export async function getData(callback) {
 }
 
 export let resultData = getData(function (results) {
-  console.log("results (new) :>> ", results);
+  // console.log("results (new) :>> ", results);
 });
 
 // console.log(resultData)
@@ -52,9 +52,6 @@ export async function insertInto(foodbank) {
 
     collection.insertOne(foodbank);
 
-    console.log(`inserted into the collection foodbank`)
-
-  })
+    console.log(`inserted into the collection foodbank`);
+  });
 }
-
-

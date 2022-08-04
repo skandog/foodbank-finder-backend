@@ -15,7 +15,6 @@ router.get("/search/:address", async (req, res) => {
 
   const result = await getDataApi(url);
   res.json(result);
-
 });
 
 export default router;
