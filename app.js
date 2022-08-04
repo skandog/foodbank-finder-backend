@@ -8,7 +8,8 @@ import logger from "morgan";
 
 import itemsRouter from "./routes/items.js";
 import foodbanksRouter from "./routes/foodbanks.js";
-import foodbankRouter from './routes/foodbank.js';
+import foodbankRouter from "./routes/foodbank.js";
+import dbo from "./db/conn.js";
 
 const app = express();
 
@@ -32,6 +33,14 @@ app.use(function (req, res, next) {
 app.use(function (err, req, res, next) {
   console.error(err.stack);
   res.status(500).json(err);
+});
+
+// perform a database connection when the server starts
+dbo.connectToServer(function (err) {
+  if (err) {
+    console.error(err);
+    process.exit();
+  }
 });
 
 export default app;
