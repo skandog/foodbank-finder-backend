@@ -3,25 +3,29 @@ export function parcelFoodbank(obj) {
   let tidyParcel = {
     name: "",
     address: "",
+    postcode: "",
     phone: "",
     email: "",
     imageUrl: "",
     needs: [""],
     distance_mi: "",
+    lat_lng: ""
   };
   console.log("obj :>> ", obj);
 
-  const arrayOfNeeds = obj.needs ? obj.needs.needs : obj.need.needs
+  const stringOfNeeds = obj.needs ? obj.needs.needs : obj.need ? obj.need.needs : []
 
   let finalParcel = {
     ...tidyParcel,
     name: obj.name,
     address: obj.address,
+    postcode: obj.postcode,
     phone: obj.phone,
     email: obj.email,
     imageUrl: obj.urls.map,
-    needs: formatArray(arrayOfNeeds),
+    needs: formatArray(stringOfNeeds),
     distance_mi: obj.distance_mi ? obj.distance_mi : ``,
+    lat_lng: obj.lat_lng
   };
 
   return finalParcel;
