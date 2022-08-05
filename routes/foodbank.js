@@ -67,11 +67,35 @@ router.post("/", async (req, res) => {
 // Updating one
 
 router.patch("/:id", getFoodbank, async (req, res) => {
+  console.log(res.foodbank);
+
   if (req.body.name !== null) {
     res.foodbank.name = req.body.name;
   }
   if (req.body.address !== null) {
     res.foodbank.address = req.body.address;
+  }
+  if (req.body.postcode !== null) {
+    res.foodbank.postcode = req.body.postcode;
+  }
+  if (req.body.phone !== null) {
+    res.foodbank.phone = req.body.phone;
+  }
+
+  if (req.body.email !== null) {
+    res.foodbank.email = req.body.email;
+  }
+  if (req.body.imageUrl !== null) {
+    res.foodbank.imageUrl = req.body.imageUrl;
+  }
+  if (req.body.needs !== null) {
+    res.foodbank.needs = req.body.needs;
+  }
+  if (req.body.distance_mi !== null) {
+    res.foodbank.distance_mi = req.body.distance_mi;
+  }
+  if (req.body.lat_lng !== null) {
+    res.foodbank.lat_lng = req.body.lat_lng;
   }
 
   try {
@@ -107,26 +131,5 @@ async function getFoodbank(req, res, next) {
   res.foodbank = foodbank;
   next();
 }
-
-// router.post("/", async (req, res)=>{
-//     let body = req.params.body;
-//     insertInto({body})
-// })
-/*
-router.post("/", (req, res) => {
-  const dbConnect = dbo.getDb();
-  const matchDocument = req.body;
-  dbConnect
-    .collection("FoodBanks")
-    .insertOne(matchDocument, function (err, result) {
-      if (err) {
-        res.status(400).send("Error inserting foodbank!");
-      } else {
-        console.log(`Added a new match with name ${result.insertedId}`);
-        res.status(204).send();
-      }
-    });
-});
-*/
 
 export default router;

@@ -1,4 +1,4 @@
-GET http://localhost:5000/foodbank/62ebe2f3298d9fe5b89abbdf
+GET http://localhost:5000/foodbank/62ed29928ce4d5ce8decd3cf
 
 ###
 
@@ -32,10 +32,10 @@ DELETE http://localhost:5000/foodbank/62ebde50f73272e5cb36efdc
 
 ###
 
-PATCH http://localhost:5000/foodbank/62ebe2f3298d9fe5b89abbdf
+PATCH http://localhost:5000/foodbank/62ed29928ce4d5ce8decd3cf
 Content-Type: application/json
 
 {
-"name": "Mousevill",
-"address": "3 something road"
+"name": "Swininton & Boldbury",
+"needs": ["fruit", "veg", "soap"]
 }
