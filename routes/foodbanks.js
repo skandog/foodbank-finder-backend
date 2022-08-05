@@ -26,7 +26,10 @@ router.get("/search/:address", async (req, res) => {
       res.json(result);
       console.log("2nd :>> ");
     } catch (error) {
-      res.json(error.message);
+      res.json(
+        "I am so sorry, there doesnt seem to be any results here. Please could you try another search term?"
+      );
+      console.log(error);
     }
   }
 });
