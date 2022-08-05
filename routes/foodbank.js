@@ -4,15 +4,6 @@ import { getDataApi } from "../models/models.js";
 import FoodBank from "../models/foodbank.js";
 import foodbank from "../models/foodbank.js";
 
-// DONT DELETE WE NEED THIS LOL
-
-// router.get("/:foodbank", async (req, res) => {
-//   let foodbank = req.params.foodbank;
-//   let url = `https://www.givefood.org.uk/api/2/foodbank/${foodbank}`;
-//   const result = await getDataApi(url);
-//   res.json(result);
-// });
-
 // Getting all
 
 router.get("/", async (req, res) => {
