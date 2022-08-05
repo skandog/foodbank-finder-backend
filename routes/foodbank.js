@@ -5,6 +5,8 @@ import FoodBank from "../models/foodbank.js";
 import mongoose from "mongoose";
 // import foodbank from "../models/foodbank.js";
 
+// This route talks only to our database on MongoDB
+
 // Getting all
 
 router.get("/", async (req, res) => {

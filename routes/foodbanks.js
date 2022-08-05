@@ -2,11 +2,15 @@ import express from "express";
 const router = express.Router();
 import { getDataApi } from "../models/models.js";
 let url = `https://www.givefood.org.uk/api/2/`;
+import { parcelFoodbanks } from "../models/serve.js";
+// This route talks only to GiveFood API
 
 router.get("/", async (req, res) => {
   let route = url + "foodbanks";
 
   const result = await getDataApi(route);
+  let finalResult = parcelFoodbanks(result);
+
   res.json(result);
 });
 
