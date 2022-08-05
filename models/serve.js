@@ -1,5 +1,4 @@
-export function parcelFoodbanks(resk) {
-  let result = resk[0];
+export function parcelFoodbank(obj) {
 
   let tidyParcel = {
     name: "",
@@ -10,20 +9,33 @@ export function parcelFoodbanks(resk) {
     needs: [""],
     distance_mi: "",
   };
-  console.log("result.needs :>> ", result);
+  console.log("obj :>> ", obj);
 
-  const itemsNeeded = result.needs ? result.needs.needs.split(`\n`) : [];
+  const arrayOfNeeds = obj.needs ? obj.needs.needs : obj.need.needs
 
   let finalParcel = {
     ...tidyParcel,
-    name: result.name,
-    address: result.address,
-    phone: result.phone,
-    email: result.email,
-    imageUrl: result.urls.map,
-    needs: itemsNeeded,
-    distance_mi: result.distance_mi,
+    name: obj.name,
+    address: obj.address,
+    phone: obj.phone,
+    email: obj.email,
+    imageUrl: obj.urls.map,
+    needs: formatArray(arrayOfNeeds),
+    distance_mi: obj.distance_mi ? obj.distance_mi : ``,
   };
 
   return finalParcel;
+}
+
+
+export const formatArray = (stringArray)=> {
+
+  if(stringArray.indexOf(`\r\n`) > 0) {
+    return stringArray.length >= 1 ? stringArray.split(`\r\n`) : []
+  }
+  return stringArray.length >= 1 ? stringArray.split(`\n`) : []
+}
+
+export const parcelArray = (array)=> {
+  return array.map((foodbank)=> parcelFoodbank(foodbank))
 }
