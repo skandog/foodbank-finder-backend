@@ -2,7 +2,8 @@ import express from "express";
 const router = express.Router();
 import { getDataApi } from "../models/models.js";
 import FoodBank from "../models/foodbank.js";
-import foodbank from "../models/foodbank.js";
+import mongoose from "mongoose";
+// import foodbank from "../models/foodbank.js";
 
 // Getting all
 
@@ -19,6 +20,29 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", getFoodbank, (req, res) => {
   res.json(res.foodbank);
+});
+
+// Get by query search
+
+router.get("/search/:param", (req, res) => {
+  let param = req.params.query;
+  console.log(param);
+
+  let query = {};
+
+  try {
+    let id = mongoose.mongo.ObjectId(param);
+    query = { id: id };
+  } catch {
+    query = { name: param };
+  }
+
+  console.log("query :>> ", query);
+
+  FoodBank.findOne(query, function (err, obj) {
+    res.send(obj);
+    console.log(obj);
+  });
 });
 
 // Creating One
