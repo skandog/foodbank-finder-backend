@@ -50,11 +50,12 @@ router.get("/search/:param", (req, res) => {
 // Creating One
 
 router.post("/", async (req, res) => {
-  const foodbank = new FoodBank({
-    name: req.body.name,
-    address: req.body.address,
-    needs: req.body.needs,
-  });
+  const foodbank = new FoodBank(
+    // name: req.body.name,
+    // address: req.body.address,
+    // needs: req.body.needs,
+    req.body
+  );
   try {
     const newFoodBank = await foodbank.save();
     res.status(201).json(newFoodBank);

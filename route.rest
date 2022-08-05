@@ -6,8 +6,21 @@ POST http://localhost:5000/foodbank
 Content-Type: application/json
 
 {
-"name": "housevill",
-"address": "2 something road"
+"name": "Quinton & Oldbury",
+"address": "St Boniface Church\r\nQuinton Road West\r\nQuinton\r\nB32 2QD",
+"postcode": "B32 2QD",
+"phone": "07732157619",
+"email": "info@quintonoldbury.foodbank.org.uk",
+"imageUrl": "https://www.givefood.org.uk/needs/at/quinton-oldbury/map.png",
+"needs": [
+"Tinned Fruit (400gms)",
+"Tinned Tomatoes",
+"Tinned Vegetables",
+"Tinned Meat",
+"Instant Mash"
+],
+"distance_mi": 2.9,
+"lat_lng": "52.452182,-1.98324"
 }
 
 
