@@ -67,41 +67,48 @@ router.post("/", async (req, res) => {
 // Updating one
 
 router.patch("/:id", getFoodbank, async (req, res) => {
-  console.log(res.foodbank);
-
+  console.log("this is res.foodbank", res.foodbank);
+  console.log("this is req.body", req.body);
   if (req.body.name !== null) {
     res.foodbank.name = req.body.name;
+    console.log("line 74", res.foodbank);
   }
-  if (req.body.address !== null) {
+  if (!req.body.address) {
     res.foodbank.address = req.body.address;
+    console.log("line 78", res.foodbank);
   }
   if (req.body.postcode !== null) {
     res.foodbank.postcode = req.body.postcode;
+    console.log("line 82", res.foodbank);
   }
   if (req.body.phone !== null) {
     res.foodbank.phone = req.body.phone;
+    console.log("line 86", res.foodbank);
   }
 
   if (req.body.email !== null) {
     res.foodbank.email = req.body.email;
+    console.log("line 91", res.foodbank);
   }
   if (req.body.imageUrl !== null) {
     res.foodbank.imageUrl = req.body.imageUrl;
+    console.log("line 95", res.foodbank);
   }
   if (req.body.needs !== null) {
     res.foodbank.needs = req.body.needs;
+    console.log("line 99", res.foodbank);
   }
   if (req.body.distance_mi !== null) {
     res.foodbank.distance_mi = req.body.distance_mi;
+    console.log("line 103", res.foodbank);
   }
   if (req.body.lat_lng !== null) {
     res.foodbank.lat_lng = req.body.lat_lng;
+    console.log("line 107", res.foodbank);
   }
-
+console.log("sadwhef", res.foodbank);
   try {
-    const updatedFoodbank = await res.foodbank.updateOne( { "id" : "62ed29928ce4d5ce8decd3cf" },
-    { $set: { "phone" : 34565654534 } }
- );
+    const updatedFoodbank = await res.foodbank.save();
     res.json(updatedFoodbank);
   } catch (error) {
     res.status(400).json({ message: error.message });
