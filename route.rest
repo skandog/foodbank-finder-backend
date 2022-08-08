@@ -36,6 +36,6 @@ PATCH http://localhost:5000/foodbank/62ebdc96d1f759fa36b0f47a
 Content-Type: application/json
 
 {
-"name": "Swininton",
-"phone": "453534536"
+"name": "test1",
+"address": "test1"
 }
