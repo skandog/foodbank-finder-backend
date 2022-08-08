@@ -99,7 +99,7 @@ router.patch("/:id", getFoodbank, async (req, res) => {
   }
 
   try {
-    const updatedFoodbank = await res.foodbank.save();
+    const updatedFoodbank = await res.foodbank.updateOne();
     res.json(updatedFoodbank);
   } catch (error) {
     res.status(400).json({ message: error.message });

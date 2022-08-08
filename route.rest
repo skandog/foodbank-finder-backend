@@ -37,5 +37,6 @@ Content-Type: application/json
 
 {
 "name": "Swininton & Boldbury",
-"needs": ["fruit", "veg", "soap"]
+"needs": ["fruit", "veg", "soap"],
+"address": "St Boniface Church\r\nQuinton Road West\r\nQuinton\r\nB32 2QD"
 }
