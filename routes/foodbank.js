@@ -99,7 +99,9 @@ router.patch("/:id", getFoodbank, async (req, res) => {
   }
 
   try {
-    const updatedFoodbank = await res.foodbank.updateOne();
+    const updatedFoodbank = await res.foodbank.updateOne( { "id" : "62ed29928ce4d5ce8decd3cf" },
+    { $set: { "phone" : 34565654534 } }
+ );
     res.json(updatedFoodbank);
   } catch (error) {
     res.status(400).json({ message: error.message });
