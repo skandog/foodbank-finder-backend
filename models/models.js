@@ -1,6 +1,7 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
 import "dotenv/config";
 import fetch from "node-fetch";
+import FoodBank from "./foodbank.js";
 
 const uri = process.env.uri;
 
