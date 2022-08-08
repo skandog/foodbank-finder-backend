@@ -4,37 +4,6 @@ import fetch from "node-fetch";
 
 const uri = process.env.uri;
 
-// const client = new MongoClient(uri, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   serverApi: ServerApiVersion.v1,
-// });
-/*
-export async function getData(callback) {
-  client.connect(async (err, db) => {
-    if (err) throw err;
-    const collection = client.db("myFirstDatabase").collection("users");
-    // .find({ name: "skandy" })
-    // .toArray(function (err, result) {
-    //   if (err) throw err;
-    //   console.log(result);
-    //   db.close();
-    // });
-
-    const results = await collection.find().toArray();
-
-    // console.log("results (model) :>> ", results); // perform actions on the collection object
-    // client.close();
-    return callback(results);
-  });
-}
-
-export let resultData = getData(function (results) {
-  // console.log("results (new) :>> ", results);
-});
-
-// console.log(resultData)
-*/
 export const getDataApi = async (url) => {
   const response = await fetch(url);
 
@@ -45,13 +14,17 @@ export const getDataApi = async (url) => {
   return data;
 };
 
-// export async function insertInto(foodbank) {
-//   client.connect(async (err) => {
-//     if (err) throw err;
-//     const collection = client.db("yourLocalFoodBank").collection("FoodBanks");
+export async function getFoodbank(req, res, next) {
+  let foodbank;
+  try {
+    foodbank = await FoodBank.findById(req.params.id);
+    if (foodbank === null) {
+      return res.status(404).json({ message: "Cannot find foodbank" });
+    }
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
 
-//     collection.insertOne(foodbank);
-
-//     console.log(`inserted into the collection foodbank`);
-//   });
-// }
+  res.foodbank = foodbank;
+  next();
+}

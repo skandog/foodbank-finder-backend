@@ -1,6 +1,6 @@
 import express from "express";
 const router = express.Router();
-import { getDataApi } from "../models/models.js";
+import { getFoodbank } from "../models/models.js";
 import FoodBank from "../models/foodbank.js";
 import mongoose from "mongoose";
 // import foodbank from "../models/foodbank.js";
@@ -130,19 +130,5 @@ router.delete("/:id", getFoodbank, async (req, res) => {
   }
 });
 
-async function getFoodbank(req, res, next) {
-  let foodbank;
-  try {
-    foodbank = await FoodBank.findById(req.params.id);
-    if (foodbank === null) {
-      return res.status(404).json({ message: "Cannot find foodbank" });
-    }
-  } catch (err) {
-    return res.status(500).json({ message: err.message });
-  }
-
-  res.foodbank = foodbank;
-  next();
-}
 
 export default router;
