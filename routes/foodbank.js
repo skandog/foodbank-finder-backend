@@ -72,42 +72,31 @@ router.patch("/:id", getFoodbank, async (req, res) => {
 
   if (req.body.name !== undefined) {
     res.foodbank.name = req.body.name;
-    console.log("line 74", res.foodbank.name);
   }
   if (req.body.address !== undefined) {
     res.foodbank.address = req.body.address;
-    console.log("line 78", res.foodbank.address);
   }
   if (req.body.postcode !== undefined) {
     res.foodbank.postcode = req.body.postcode;
-    console.log("line 82", res.foodbank.postcode);
   }
   if (req.body.phone !== undefined) {
     res.foodbank.phone = req.body.phone;
-    console.log("line 86", res.foodbank.phone);
   }
-
   if (req.body.email !== undefined) {
     res.foodbank.email = req.body.email;
-    console.log("line 91", res.foodbank.email);
   }
   if (req.body.imageUrl !== undefined) {
     res.foodbank.imageUrl = req.body.imageUrl;
-    console.log("line 95", res.foodbank.imageUrl);
   }
   if (req.body.needs !== undefined) {
     res.foodbank.needs = req.body.needs;
-    console.log("line 99", res.foodbank.needs);
   }
   if (req.body.distance_mi !== undefined) {
     res.foodbank.distance_mi = req.body.distance_mi;
-    console.log("line 103", res.foodbank.distance_mi);
   }
   if (req.body.lat_lng !== undefined) {
     res.foodbank.lat_lng = req.body.lat_lng;
-    console.log("line 107", res.foodbank.lat_lng);
   }
-console.log("sadwhef", res.foodbank);
   try {
     const updatedFoodbank = await res.foodbank.save();
 
