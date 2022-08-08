@@ -27,8 +27,8 @@ router.get("/:id", getFoodbank, (req, res) => {
 // Get by query search
 
 router.get("/search/:param", (req, res) => {
-  let param = req.params.query;
-  console.log(param);
+  let param = req.params.param;
+  console.log("This is line 31", param);
 
   let query = {};
 
