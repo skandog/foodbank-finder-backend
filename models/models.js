@@ -20,10 +20,10 @@ export async function getFoodbank(req, res, next) {
   try {
     foodbank = await FoodBank.findById(req.params.id);
     if (foodbank === null) {
-      return res.status(404).json({ message: "Cannot find foodbank" });
+      return res.status(404).json({ success: false, message: "Cannot find foodbank" });
     }
   } catch (err) {
-    return res.status(500).json({ message: err.message });
+    return res.status(500).json({ success: false, message: err.message });
   }
 
   res.foodbank = foodbank;
