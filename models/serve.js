@@ -9,7 +9,8 @@ export function parcelFoodbank(obj) {
     imageUrl: "",
     needs: [""],
     distance_mi: "",
-    lat_lng: ""
+    lat_lng: "",
+    homepage: ""
   };
   console.log("obj :>> ", obj);
 
@@ -25,7 +26,8 @@ export function parcelFoodbank(obj) {
     imageUrl: obj.urls.map,
     needs: formatArray(stringOfNeeds),
     distance_mi: obj.distance_mi ? obj.distance_mi : ``,
-    lat_lng: obj.lat_lng
+    lat_lng: obj.lat_lng,
+    homepage: obj.urls?.homepage ? obj.urls?.homepage: ``
   };
 
   return finalParcel;

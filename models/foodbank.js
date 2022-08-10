@@ -10,6 +10,7 @@ const foodBankSchema = new mongoose.Schema({
   needs: [{ type: String }],
   distance_mi: { type: Number },
   lat_lng: { type: String },
+  homepage: { type: String },
 });
 
 export default mongoose.model("FoodBanks", foodBankSchema);
