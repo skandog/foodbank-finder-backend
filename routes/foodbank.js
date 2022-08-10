@@ -116,7 +116,7 @@ router.patch("/:id", getFoodbank, async (req, res) => {
 router.delete("/:id", getFoodbank, async (req, res) => {
   try {
     await res.foodbank.remove();
-    res.json({ message: `${res.foodbank} has been deleted` });
+    res.json({ message: `${res.foodbank.name} has been deleted it's id was ${res.foodbank.id}` });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }

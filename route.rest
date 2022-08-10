@@ -1,4 +1,8 @@
-GET http://localhost:5000/foodbank
+GET http://localhost:5000/foodbank/62ebdc96d1f759fa36b0f47a
+
+###
+
+GET http://localhost:5000/foodbanks/search/SE23
 
 ###
 
@@ -6,7 +10,7 @@ POST http://localhost:5000/foodbank
 Content-Type: application/json
 
 {
-"name": "Claudiaville",
+"name": "Joshville",
 "address": "St Boniface Church\r\nQuinton Road West\r\nQuinton\r\nB32 2QD",
 "postcode": "B32 2QD",
 "phone": "07732157619",
@@ -19,20 +23,20 @@ Content-Type: application/json
 "Tinned Meat",
 "Instant Mash"
 ],
-"distance_mi": 2.9,
-"lat_lng": "52.452182,-1.98324"
+"lat_lng": "52.452182,-1.98324",
+"homepage": "thisURL" 
 }
 
 
 ###
 
-DELETE http://localhost:5000/foodbank/62f25c17f105c8d658daff38
+DELETE http://localhost:5000/foodbank/62f38a436aa133a842d65f90
 
 
 
 ###
 
-PATCH http://localhost:5000/foodbank/62ed2851abc1c032c458e086
+PATCH http://localhost:5000/foodbank/62f38a436aa133a842d65f90
 Content-Type: application/json
 
 {
