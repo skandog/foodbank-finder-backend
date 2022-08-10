@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
   const result = await getDataApi(route);
   let finalResult = parcelArray(result);
 
-  res.json(finalResult);
+  res.json({ success: true, payload: finalResult });
 });
 
 router.get("/search/:address", async (req, res) => {
@@ -23,7 +23,7 @@ router.get("/search/:address", async (req, res) => {
 
     const finalResult = parcelArray(result)
 
-    res.json(finalResult);
+    res.json({ success: true, payload: finalResult });
     console.log("1st :>> ");
   } catch {
     try {
@@ -32,11 +32,11 @@ router.get("/search/:address", async (req, res) => {
       const result = await getDataApi(route);
 
       const finalResult = parcelArray([result])
-      res.json(finalResult);
+      res.json({ success: true, payload: finalResult });
       console.log("2nd :>> ");
     } catch (error) {
-      res.json(
-        "I am so sorry, there doesnt seem to be any results here. Please could you try another search term?"
+      res.json({ success: false, message:
+        "I am so sorry, there doesnt seem to be any results here. Please could you try another search term?" }
       );
       console.log(error);
     }
