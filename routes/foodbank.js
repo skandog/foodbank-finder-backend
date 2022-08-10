@@ -31,22 +31,25 @@ router.get("/:id", getFoodbank, (req, res) => {
 
 router.get("/search/:param", (req, res) => {
   let param = req.params.param;
-  console.log("This is line 31", param);
+  console.log("This is line 34", param);
 
-  let query = {};
+  let query = param;
 
-  try {
-    let id = mongoose.mongo.ObjectId(param);
-    query = { id: id };
-  } catch {
-    query = { name: param };
-  }
+  // let query = {};
 
-  console.log("query :>> ", query);
+  // try {
+  //   let id = mongoose.mongo.ObjectId(param);
+  //   console.log("this is line 40", mongoose.mongo.ObjectId(param));
+  //   query = { id: id };
+  // } catch {
+  //   query = { name: param };
+  // }
 
-  FoodBank.findOne(query, function (err, obj) {
-    res.json({success: true, payload: [obj]});
-    console.log(obj);
+  console.log("this is line 46", "query :>> ", query);
+
+  FoodBank.find({$or: [{name: query }, {address: query}, {postcode: query}]}, function (err, obj) {
+    res.json({success: true, payload: obj});
+    console.log("this is line 50", obj);
   });
 });
 
