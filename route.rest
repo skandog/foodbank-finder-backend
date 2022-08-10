@@ -6,7 +6,7 @@ POST http://localhost:5000/foodbank
 Content-Type: application/json
 
 {
-"name": "Quinton & Oldbury",
+"name": "Claudiaville",
 "address": "St Boniface Church\r\nQuinton Road West\r\nQuinton\r\nB32 2QD",
 "postcode": "B32 2QD",
 "phone": "07732157619",

@@ -3,6 +3,7 @@ const router = express.Router();
 import { getFoodbank } from "../models/models.js";
 import FoodBank from "../models/foodbank.js";
 import mongoose from "mongoose";
+import foodbank from "../models/foodbank.js";
 // import foodbank from "../models/foodbank.js";
 
 // This route talks only to our database on MongoDB
@@ -21,7 +22,9 @@ router.get("/", async (req, res) => {
 // Get by id
 
 router.get("/:id", getFoodbank, (req, res) => {
+  console.log(res.foodbank);
   res.json({success: true, payload: [res.foodbank]});
+
 });
 
 // Get by query search (name or id)
