@@ -12,19 +12,19 @@ import mongoose from "mongoose";
 router.get("/", async (req, res) => {
   try {
     const foodbanksData = await FoodBank.find();
-    res.json(foodbanksData);
+    res.json({success: true, payload: foodbanksData});
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({success: false, message: err.message });
   }
 });
 
 // Get by id
 
 router.get("/:id", getFoodbank, (req, res) => {
-  res.json(res.foodbank);
+  res.json({success: true, payload: [res.foodbank]});
 });
 
-// Get by query search
+// Get by query search (name or id)
 
 router.get("/search/:param", (req, res) => {
   let param = req.params.param;
@@ -42,7 +42,7 @@ router.get("/search/:param", (req, res) => {
   console.log("query :>> ", query);
 
   FoodBank.findOne(query, function (err, obj) {
-    res.send(obj);
+    res.json({success: true, payload: [obj]});
     console.log(obj);
   });
 });
@@ -58,9 +58,9 @@ router.post("/", async (req, res) => {
   );
   try {
     const newFoodBank = await foodbank.save();
-    res.status(201).json(newFoodBank);
+    res.status(201).json({success: true, payload: newFoodBank});
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    res.status(400).json({success: false, message: err.message });
   }
 });
 
@@ -102,9 +102,9 @@ router.patch("/:id", getFoodbank, async (req, res) => {
 
     console.log("updatedFoodbank", updatedFoodbank);
 
-    res.json(updatedFoodbank);
+    res.json({success: true, payload: updatedFoodbank});
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(400).json({ success: false, message: error.message });
   }
 });
 
@@ -113,9 +113,9 @@ router.patch("/:id", getFoodbank, async (req, res) => {
 router.delete("/:id", getFoodbank, async (req, res) => {
   try {
     await res.foodbank.remove();
-    res.json({ message: "FoodBank has been deleted" });
+    res.json({ message: `${res.foodbank} has been deleted` });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ success: false, message: error.message });
   }
 });
 
