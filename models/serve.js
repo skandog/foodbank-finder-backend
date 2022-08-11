@@ -23,7 +23,7 @@ export function parcelFoodbank(obj) {
     postcode: obj.postcode,
     phone: obj.phone,
     email: obj.email,
-    imageUrl: obj.urls.map,
+    imageUrl: obj.urls?.map,
     needs: formatArray(stringOfNeeds),
     distance_mi: obj.distance_mi ? obj.distance_mi : ``,
     lat_lng: obj.lat_lng,

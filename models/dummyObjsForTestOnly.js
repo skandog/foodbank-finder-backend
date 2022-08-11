@@ -13,6 +13,19 @@ export const keys = [
   "homepage"
 ]
 
+export const entriesMinimal = [
+  ["name", "Vauxhall"],
+  ["address","105 Tyers Street\r\nVauxhall\r\nLondon\r\nSE11 5HS"],
+  ["postcode",undefined],
+  ["phone",undefined],
+  ["email",undefined],
+  ["imageUrl", undefined],
+  ["needs", []],
+  ["distance_mi", ""],
+  ["lat_lng", undefined],
+  ["homepage",""]
+]
+
 export const entries = [
   ["name", "Vauxhall"],
   ["address","105 Tyers Street\r\nVauxhall\r\nLondon\r\nSE11 5HS"],
@@ -35,6 +48,14 @@ export const entries = [
 
 
 //dummy Objs for testing purposes only
+
+export const dummyObjFoodbanksSearchAddressMinimal =
+
+  {
+    name: "Vauxhall",
+    address: "105 Tyers Street\r\nVauxhall\r\nLondon\r\nSE11 5HS"
+  }
+
 
 export const dummyObjFoodbanksSearchAddress =
 
