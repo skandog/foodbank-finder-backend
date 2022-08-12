@@ -1,5 +1,9 @@
 // dummy arrays etc for checking object structure
 
+export const strN = "Toilet Roll\nFruit Squash\nSmalls Jars Of Pasta Sauce\nMicrowave Rice Sachets\nInstant Hot Chocolate\nOil\nBiscuits\nBaked Beans\nInstant Soup Sachets\nUHT Milk Semi Skimmed And Full Fat\nTinned Meat (Pork Free)"
+
+export const strRN = "incomplete"
+
 export const keys = [
   "name",
   "address",
