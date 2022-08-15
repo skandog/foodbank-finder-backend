@@ -19,20 +19,20 @@ This is the repo for our server and database, where we have built the API routes
 
 | Method | Path                 | Additional Info | Result                                    | Response                                    |
 | ------ | -------------------- | --------------- | ----------------------------------------- | ------------------------------------------- |
-| GET    | /foodbank            |                 | all FoodBanks                             | {  foodbank array }  |
-| GET    | /foodbank/id         |                 | get FoodBank by id                        | {  foodbank array }  |
-| POST   | /foodbank            |                 | create a new FoodBank                     | {  foodbank object } |
-| PATCH  | /foodbank/id         |                 | update a FoodBank by id                   | {  foodbank object } |
-| DELETE | /foodbank/id         |                 | delete a FoodBank by id                   | {  "message": "FoodBank has been deleted" }  |
+| GET    | /foodbank            |                 | all FoodBanks                             | { success: true, payload: foodbank array }  |
+| GET    | /foodbank/id         |                 | get FoodBank by id                        | { success: true, payload: foodbank array }  |
+| POST   | /foodbank            |                 | create a new FoodBank                     | { success: true, payload: foodbank object } |
+| PATCH  | /foodbank/id         |                 | update a FoodBank by id                   | { success: true, payload: foodbank object } |
+| DELETE | /foodbank/id         |                 | delete a FoodBank by id                   | { success: false, "message": "FoodBank has been deleted" }  |
 
 
 #### FoodBanks
 
 | Method | Path                 | Additional Info | Result                                    | Response                                    |
 | ------ | -------------------- | --------------- | ----------------------------------------- | ------------------------------------------- |
-| GET    | /foodbanks           |                 | all FoodBanks from external API           | { FoodBank array }                          |
-| GET    | /foodbanks/search/id |                 | single FoodBank from external API         | { FoodBank object }                         |
-
+| GET    | /foodbanks           |                 | all FoodBanks from external API           | { success: true, payload: FoodBank array }  |
+| GET    | /foodbanks/search/address |                 | single FoodBank from external API         | { success: true, payload: FoodBank object } |
+| GET    | /foodbanks/search/address |                 | single FoodBank from external API         | { success: false,  message: "I am so sorry, there doesnt seem to be any results here. Please could you try another search term?" } |
 
 
 ---
