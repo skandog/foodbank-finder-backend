@@ -59,7 +59,7 @@ To run tests, run the following command:
 Clone the project
 
 ```bash
-  git clone https://github.com/SchoolOfCode/final-project_back-end-jazzy-code-superheros.git
+  git clone https://github.com/skandog/foodbank-finder-backend.git
 ```
 
 Install dependencies
